@@ -1,8 +1,8 @@
 const TestRunner = require('jest-runner')
 
 class SerialRunner extends TestRunner {
-  constructor(dateStr) {
-    super(dateStr)
+  constructor(...attr) {
+    super(...attr)
     this.isSerial = true
   }
 }

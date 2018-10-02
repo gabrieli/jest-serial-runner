@@ -1,6 +1,6 @@
 {
   "name": "jest-serial-runner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extending the Jest default runner to run tests serially - useful for integration tests",
   "main": "index.js",
   "scripts": {
