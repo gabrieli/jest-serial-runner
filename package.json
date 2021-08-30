@@ -22,7 +22,7 @@
     "url": "https://github.com/gabrieli/jest-serial-runner/issues"
   },
   "homepage": "https://github.com/gabrieli/jest-serial-runner#readme",
-  "dependencies": {
-    "jest-runner": "^24.8.0"
+  "peerDependencies": {
+    "jest-runner": ">= 24.8.0"
   }
 }
