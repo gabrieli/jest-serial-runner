@@ -1,11 +1,11 @@
 {
   "name": "jest-serial-runner",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Extending the Jest default runner to run tests serially - useful for integration tests",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabrieli/jest-serial-runner.git"
@@ -17,12 +17,18 @@
     "runinband"
   ],
   "author": "gabrieli",
+  "contributors": [
+    {
+      "name": "codejedi365",
+      "email": "codejedi365@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gabrieli/jest-serial-runner/issues"
   },
   "homepage": "https://github.com/gabrieli/jest-serial-runner#readme",
   "peerDependencies": {
-    "jest-runner": ">= 24.8.0"
+    "jest-runner": "24.x - 26.x"
   }
 }
