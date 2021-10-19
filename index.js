@@ -1,4 +1,4 @@
-const TestRunner = require('jest-runner')
+const TestRunner = require('jest-runner').default
 
 class SerialRunner extends TestRunner {
   constructor(...attr) {
