@@ -1,0 +1,47 @@
+#!/bin/sh
+# git hook prepare-commit-msg
+# --------------------------------------
+
+# shellcheck source=.husky/_/husky.sh
+. "$(dirname "$0")/_/husky.sh"
+
+[ -z "$LOG_PREFIX" ] && LOG_PREFIX="[.husky/prepare-commit-msg]"
+[ -z "$CZ_RETRY" ] && CZ_RETRY=false
+
+# shellcheck source=.husky/hook-utils.sh
+. "$(dirname "$0")/hook-utils.sh"
+
+# GIT HOOK ARGV
+# ------------------------
+# COMMIT_MSG_FILE="$1"   # .git/MERGE_MSG | .git/SQUASH_MSG | .git/COMMIT_EDITMSG
+COMMIT_MSG_SOURCE="$2" # message | template | merge | squash | commit
+# COMMIT_OBJ_NAME="$3"   # commit object name
+
+if [ "$COMMIT_MSG_SOURCE" = "merge" ] || [ "$COMMIT_MSG_SOURCE" = "message" ]; then
+  # on cherry-pick or merge commit, do not enable commitizen
+  # and pass on succesfully
+  unset -v COMMIT_MSG_SOURCE
+  cleanup
+  exit 0 # pass on succesfully
+fi
+
+log "Starting commitizen cli for conventional commits..."
+
+# Default
+CZ_OPTIONS="--hook"
+
+if [ $CZ_RETRY = "true" ]; then
+  CZ_OPTIONS="--retry"
+elif ! exec </dev/tty; then
+  error "Unable to activate <stdin> for interactive shell for commitizen cli"
+  error "Aborting interactive commit..."
+  unset -v COMMIT_MSG_SOURCE CZ_OPTIONS
+  cleanup
+  exit 0
+fi
+
+explicit_run_cmd "npx cz ${CZ_OPTIONS} || true"
+
+# env cleanup (vars, functions, utils)
+unset -v COMMIT_MSG_SOURCE CZ_OPTIONS
+cleanup

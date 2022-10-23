@@ -85,3 +85,9 @@ module.exports = {
     ]
 }
 ```
+
+## Contributors
+
+PR's & Issue contributions welcome! Please adhere to
+[contributing guidelines](./CONTRIBUTING.md)
+or your submission will be closed or delayed.
