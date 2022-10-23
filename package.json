@@ -14,7 +14,8 @@
     "jest",
     "jest-runner",
     "serial",
-    "runinband"
+    "runinband",
+    "run-in-band"
   ],
   "author": "gabrieli <gabriel.ionescu.08@gmail.com>",
   "contributors": [
