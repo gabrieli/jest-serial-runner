@@ -12,6 +12,9 @@ jobs:
 
   release:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    environment: 
+      name: production
+      url: https://www.npmjs.com/package/jest-serial-runner
     runs-on: ubuntu-latest
     steps:
       - name: git checkout HEAD
