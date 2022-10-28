@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  workflow_call:
+
+jobs:
+
+  lint-scripts:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout HEAD
+        uses: actions/checkout@v3
+
+      - name: Install ShellCheck
+        run: sudo apt update && sudo apt install shellcheck
+
+      - name: simulate husky install
+        # husky does not install when in CI env
+        # but file is needed so shellcheck does not throw errors for missing file
+        run: mkdir -p .husky/_ && touch .husky/_/husky.sh
+
+      - name: Shellcheck
+        run: shellcheck -x
+              .husky/commit-msg
+              .husky/hook-utils.sh
+              .husky/prepare-commit-msg
+
+      # - name: shell format
+      #   run: shfmt
+
+
+  lint-commits:
+    name: Semantic commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout HEAD
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        run: npm install --prefer-offline --no-fund --no-audit
+
+      - name: Commits lint check
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+        env:
+          BASE_COMMIT_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          NEWEST_COMMIT_SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
+        run: npx commitlint --verbose
+             --from "$BASE_COMMIT_SHA"
+             --to "$NEWEST_COMMIT_SHA"
