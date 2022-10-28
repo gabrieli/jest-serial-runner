@@ -1,0 +1,10 @@
+name: PR Check
+
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+    branches: [ master, next ]
+
+jobs:
+  validate:
+    uses: ./.github/workflows/ci.yml
