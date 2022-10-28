@@ -10,9 +10,9 @@
   <a href="https://github.com/gabrieli/jest-serial-runner/releases">
     <img src="https://img.shields.io/badge/&#9741-changelog-lightgrey">
   </a>
-  <!-- <a href="https://github.com/gabrieli/jest-serial-runner/actions/workflows/cicd.yml">
-    <img src="https://github.com/gabrieli/jest-serial-runner/actions/workflows/cicd.yml/badge.svg" >
-  </a> -->
+  <a href="https://github.com/gabrieli/jest-serial-runner/actions/workflows/push.yml">
+    <img src="https://github.com/gabrieli/jest-serial-runner/actions/workflows/push.yml/badge.svg?branch=master" >
+  </a>
   <a href="https://github.com/gabrieli/jest-serial-runner/issues">
     <img src="https://img.shields.io/github/issues/gabrieli/jest-serial-runner">
   </a>
@@ -29,9 +29,9 @@
   <img src="https://img.shields.io/github/last-commit/gabrieli/jest-serial-runner">
 </p>
 <p align="center">
-  <!-- <a href="https://github.com/semantic-release/semantic-release">
+  <a href="https://github.com/semantic-release/semantic-release">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" >
-  </a> -->
+  </a>
   <img src="https://img.shields.io/badge/Contributors-PR's_welcome-pink">
 </p>
 <p align="center">
