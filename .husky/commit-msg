@@ -1,0 +1,32 @@
+#!/bin/sh
+# git hook commit-msg
+# --------------------------------------
+
+# shellcheck source=.husky/_/husky.sh
+. "$(dirname "$0")/_/husky.sh"
+
+[ -z "$LOG_PREFIX" ] && LOG_PREFIX="[.husky/commit-msg]"
+
+# shellcheck source=.husky/hook-utils.sh
+. "$(dirname "$0")/hook-utils.sh"
+
+COMMIT_MSG_FILE="$1"
+
+printRetryMsg() {
+  error "To retry: "
+  error "  [1] With a manual edit, use the command: 'npm run commit-retry'."
+  error "  [2] From scratch with commitizen, use the command: 'git commit'."
+  error "      WARNING: this will erase any previous cache or COMMIT_EDITMSG."
+}
+
+log "$> npx commitlint --edit .git/COMMIT_EDITMSG"
+if ! npx --no-install commitlint --edit "$COMMIT_MSG_FILE"; then
+  error "Sorry, try again and please adhere to conventional commit rules."
+  printRetryMsg
+  exit 1
+fi
+
+# env cleanup
+unset -v COMMIT_MSG_FILE
+unset -f printRetryMsg
+cleanup
