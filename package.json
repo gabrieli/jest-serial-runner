@@ -21,7 +21,8 @@
   "contributors": [
     "Evan Dwight <effdem3@gmail.com>",
     "codejedi365 <codejedi365@gmail.com>",
-    "yuanfang-dev <dzcpy@users.noreply.github.com>"
+    "yuanfang-dev <dzcpy@users.noreply.github.com>",
+    "Adam Uhlíř <adam@uhlir.dev>"
   ],
   "license": "MIT",
   "bugs": {
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/gabrieli/jest-serial-runner#readme",
   "peerDependencies": {
-    "jest-runner": ">= 24.8.0"
+    "jest-runner": "24.x - 29.x"
   },
   "publishConfig": {
     "access": "public"
