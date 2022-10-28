@@ -7,11 +7,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "Friday"
+      day: "friday"
       time: "15:00"
       timezone: "America/Cancun"
-    assignees:
-      - "codejedi365"
     labels:
       - "review"
       - "dependencies"
@@ -34,8 +32,6 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-    assignees:
-      - "codejedi365"
     labels:
       - "review"
       - "github-actions"
