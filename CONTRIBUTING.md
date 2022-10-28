@@ -32,3 +32,11 @@ everyone time!
 Please validate changes with the equivalent peer dependency of `jest-runner@latest`,
 on the current Node.js LTS version for validity.
 
+### GitHub CI Pipeline
+
+Upon an open Pull Request (PR), GitHub will automatically run the configured CI
+actions in order to evaluate and enforce the project standards. You can review
+the action steps at `.github/workflows/pr.yml`. The actions will line up with
+the guidelines stated above. PR's will not be accepted until there are no merge
+conflicts with the master branch nor failing pipeline actions. Please do your
+due diligence.
