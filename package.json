@@ -16,7 +16,12 @@
     "serial",
     "runinband"
   ],
-  "author": "gabrieli",
+  "author": "gabrieli <gabriel.ionescu.08@gmail.com>",
+  "contributors": [
+    "Evan Dwight <effdem3@gmail.com>",
+    "codejedi365 <codejedi365@gmail.com>",
+    "yuanfang-dev <dzcpy@users.noreply.github.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gabrieli/jest-serial-runner/issues"
