@@ -30,7 +30,7 @@ log "Starting commitizen cli for conventional commits..."
 # Default
 CZ_OPTIONS="--hook"
 
-if [ $CZ_RETRY = "true" ]; then
+if [ "$CZ_RETRY" = "true" ]; then
   CZ_OPTIONS="--retry"
 elif ! exec </dev/tty; then
   error "Unable to activate <stdin> for interactive shell for commitizen cli"
