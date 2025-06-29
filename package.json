@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/gabrieli/jest-serial-runner#readme",
   "peerDependencies": {
-    "jest-runner": "24.x - 29.x"
+    "jest-runner": "24.x - 30.x"
   },
   "publishConfig": {
     "access": "public"
